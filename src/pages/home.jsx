@@ -26,7 +26,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchNews = async () => {
-      const data = await getApiberita('republika', 'bola')
+      const data = await getApiberita('antara', 'tekno')
       setNews2(data)
     }
     fetchNews()
@@ -34,16 +34,16 @@ const Home = () => {
 
   useEffect(() => {
     const fetchNews = async () => {
-      const data = await getApiberita('republika', 'internasional')
+      const data = await getApiberita('antara', 'dunia')
       setNews3(data)
     }
     fetchNews()
   },[])
 
   return(
-    <div>
+    <div className='scrollbar-none'>
       <Navbar/>
-      <div className="p-[72px] max-w-[1280px] mx-aut flex flex-col mx-auto gap-8">
+      <div className="p-[72px] max-w-[1280px] mx-auto flex flex-col mx-auto gap-8">
         {news.length > 0 ? (
           <>
             <CardHeadline berita={news[currentIndex]} />
@@ -51,7 +51,7 @@ const Home = () => {
             <IndexHeadline 
               currentIndex={currentIndex} 
               setCurrentIndex={setCurrentIndex} 
-              news={news} 
+              news={news}
             />
             </div>
           </>
